@@ -35,36 +35,11 @@ function CustomDrawerContent(props) {
   );
 }
 
-
-function MainStack() {
-  return (
-    <Stack.Navigator initialRouteName="Main">
-      <Stack.Screen name="Main" component={MainScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="Settings" component={SettingsScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="Atividades" component={AtividadesScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="PlanoTreino" component={PlanoTreinoScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="LocaisTreino" component={LocaisTreinoScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="Progresso" component={ProgressoScreen} options={{ headerShown: false }} />
-    </Stack.Navigator>
-  );
-}
-
-
-function AuthStack() {
-  return (
-    <Stack.Navigator initialRouteName="Login">
-      <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="Signup" component={SignupScreen} options={{ headerShown: false }} />
-    </Stack.Navigator>
-  );
-}
-
 // Componente principal do aplicativo
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Login" drawerContent={props => <CustomDrawerContent {...props} />}>
+      <Drawer.Navigator initialRouteName="Home" drawerContent={props => <CustomDrawerContent {...props} />}>
         <Drawer.Screen
           name="Home"
           component={MainStack}
@@ -148,5 +123,30 @@ export default function App() {
         {/* Adicionar mais telas se for necessário */}
       </Drawer.Navigator>
     </NavigationContainer>
+  );
+}
+
+// Navegação de Pilha para telas principais
+function MainStack() {
+  return (
+    <Stack.Navigator initialRouteName="Main">
+      <Stack.Screen name="Main" component={MainScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Settings" component={SettingsScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Atividades" component={AtividadesScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="PlanoTreino" component={PlanoTreinoScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="LocaisTreino" component={LocaisTreinoScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Progresso" component={ProgressoScreen} options={{ headerShown: false }} />
+    </Stack.Navigator>
+  );
+}
+
+// Navegação de Pilha para autenticação
+function AuthStack() {
+  return (
+    <Stack.Navigator initialRouteName="Login">
+      <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Signup" component={SignupScreen} options={{ headerShown: false }} />
+    </Stack.Navigator>
   );
 }
